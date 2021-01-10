@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "reactive-forms"
+  "defaultProject": "reactive-forms",
+  "cli": {
+    "analytics": false
+  }
 }
