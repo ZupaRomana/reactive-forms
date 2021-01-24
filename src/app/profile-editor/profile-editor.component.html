@@ -3,6 +3,7 @@
     First Name:
     <input type="text" formControlName="firstName">
   </label>
+  <div class="error" *ngIf="profileForm.get('firstName').hasError('forbiddenName')">{{ profileForm.get('firstName').getError('forbiddenName').value}}</div>
 
   <label>
     Last Name:
@@ -13,6 +14,7 @@
     Email:
     <input type="text" formControlName="email">
   </label>
+  <div class="error" *ngIf="profileForm.get('email').hasError('emailTaken')">Email already in use</div>
 
   <div formGroupName="address">
     <h3>Address</h3>
@@ -46,4 +48,4 @@
 
   <button type="submit" [disabled]="!profileForm.valid">Submit</button>
 </form>
-{{ profileForm.value | json }}
+<div class="error" *ngIf="profileForm.hasError('sameNames')">You can't have same first and last name!</div>
