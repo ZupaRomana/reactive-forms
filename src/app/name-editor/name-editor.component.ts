@@ -7,7 +7,7 @@ import {FormControl} from '@angular/forms';
   styleUrls: ['./name-editor.component.css']
 })
 export class NameEditorComponent implements OnInit {
-  name = new FormControl('');
+  name = new FormControl('qwe', [], []);
 
   constructor() { }
 

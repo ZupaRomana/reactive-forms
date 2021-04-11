@@ -3,6 +3,7 @@
     First Name:
     <input type="text" formControlName="firstName">
   </label>
+  <div class="error" *ngIf="profileForm.get('firstName').hasError('forbiddenName')">{{profileForm.get('firstName').getError('forbiddenName').value}}</div>
 
   <label>
     Last Name:
@@ -13,6 +14,7 @@
     Email:
     <input type="text" formControlName="email">
   </label>
+  <div class="error" *ngIf="profileForm.get('email').hasError('emailTaken')">Email already in use</div>
 
   <div formGroupName="address">
     <h3>Address</h3>
@@ -36,7 +38,7 @@
     <h3>Aliases</h3>
     <button (click)="addAlias()">Add Alias</button>
 
-    <div *ngFor="let alias of aliases.controls; let i=index">
+    <div *ngFor="let alias of aliases.controls; let i=index;">
       <label>
         Alias:
         <input type="text" [formControlName]="i">
@@ -46,4 +48,4 @@
 
   <button type="submit" [disabled]="!profileForm.valid">Submit</button>
 </form>
-{{ profileForm.value | json }}
+<div *ngIf="profileForm.hasError('identityRevealed')">NIEDASIE</div>
