@@ -1,0 +1,7 @@
+.error {
+  color: red;
+}
+
+.ng-invalid input {
+  background-color: rgb(255, 150, 150);
+}
